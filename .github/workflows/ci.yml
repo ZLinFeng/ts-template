@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm build
+
+  # template:start
+  template-smoke:
+    name: Rename from template
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Create project from template
+        run: |
+          mkdir -p "$RUNNER_TEMP/ci-app"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/ci-app"
+          cd "$RUNNER_TEMP/ci-app"
+          node scripts/init-template.mjs \
+            --name ci-app \
+            --scope @ci \
+            --display-name "CI App"
+          rm -rf skills scripts/init-template.mjs
+          pnpm install
+          if grep -RIl "best-ts" . --exclude-dir=node_modules --exclude-dir=.git; then
+            echo "Template identifiers remain" >&2
+            exit 1
+          fi
+          pnpm install --frozen-lockfile
+          pnpm check
+          pnpm build
+
+# template:end

@@ -1,0 +1,21 @@
+{
+  "name": "@best-ts/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:fix": "node ../../scripts/check-app.mjs",
+    "dev": "pnpm run check:fix && pnpm run dev:start",
+    "dev:start": "node --conditions=development --watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "pnpm run check:fix && tsc",
+    "typecheck": "tsc -p tsconfig.test.json"
+  },
+  "dependencies": {
+    "@best-ts/shared": "workspace:*",
+    "@sinclair/typebox": "^0.34.52",
+    "fastify": "^5.12.8",
+    "fastify-plugin": "^6.0.1",
+    "yaml": "^2.9.1"
+  }
+}

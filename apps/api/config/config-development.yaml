@@ -1,0 +1,10 @@
+# 当 API_ENV / NODE_ENV 未设置或为 development 时加载。
+server:
+  host: 127.0.0.1
+  port: 3000
+database:
+  # 也可写成 ${DATABASE_PATH:-.data/tasks.sqlite} 从环境变量读取。
+  path: .data/tasks.sqlite
+logger:
+  enabled: true
+  level: info

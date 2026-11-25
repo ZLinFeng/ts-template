@@ -1,0 +1,9 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": ["../../.oxlintrc.json"],
+  "plugins": ["unicorn"],
+  "rules": {
+    "no-console": "error",
+    "unicorn/no-process-exit": "error"
+  }
+}

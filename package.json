@@ -1,0 +1,45 @@
+{
+  "name": "best-ts-template",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.20.0",
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --no-bail --filter \"./apps/*\" run check:fix && pnpm --parallel --filter \"./apps/*\" run dev:start",
+    "dev:web": "pnpm --filter @best-ts/web run dev",
+    "dev:api": "pnpm --filter @best-ts/api run dev",
+    "dev:admin": "pnpm --filter @best-ts/admin run dev",
+    "build": "pnpm -r run build",
+    "build:web": "pnpm --filter @best-ts/web... run build",
+    "build:api": "pnpm --filter @best-ts/api... run build",
+    "build:admin": "pnpm --filter @best-ts/admin... run build",
+    "build:admin:bin": "pnpm --filter @best-ts/admin run build:bin",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "oxlint .",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:api": "vitest run --project api",
+    "test:web": "vitest run --project web",
+    "test:cov": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "admin": "pnpm --filter @best-ts/admin run cli"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "^24.19.2",
+    "@vitejs/plugin-react": "6.3.0",
+    "@vitest/coverage-v8": "5.1.1",
+    "jsdom": "31.0.1",
+    "oxlint": "1.94.0",
+    "prettier": "3.10.1",
+    "typescript": "~6.0.3",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+/apps/api/.data/
+/apps/api/config/*.local.yaml
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# 本地环境变量与密钥；示例文件仍可提交
+.env
+.env.*
+!.env.example
+!.env.*.example

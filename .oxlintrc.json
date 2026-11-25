@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "oxc"],
+  "rules": {
+    "no-debugger": "error",
+    "no-unused-vars": "error"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "/apps/api/.data/",
+    "coverage/",
+    "playwright-report/",
+    "test-results/",
+    "blob-report/"
+  ]
+}

@@ -1,0 +1,26 @@
+name: ${COMPOSE_PROJECT_NAME:-best-ts}
+
+services:
+  api:
+    image: ${API_IMAGE:-best-ts-api:local}
+    build:
+      context: ..
+      dockerfile: deploy/api/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - api-data:/data
+
+  web:
+    image: ${WEB_IMAGE:-best-ts-web:local}
+    build:
+      context: ..
+      dockerfile: deploy/web/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
+
+volumes:
+  api-data:

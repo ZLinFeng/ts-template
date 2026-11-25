@@ -1,0 +1,23 @@
+{
+  "name": "@best-ts/admin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "best-ts-admin": "./dist/index.js"
+  },
+  "scripts": {
+    "check:fix": "node ../../scripts/check-app.mjs",
+    "dev": "pnpm run check:fix && pnpm run cli",
+    "dev:start": "pnpm run cli",
+    "cli": "node --conditions=development src/index.ts",
+    "start": "node dist/index.js",
+    "build": "pnpm run check:fix && tsc",
+    "build:bin": "pnpm run check:fix && bun build --compile --conditions=development ./src/index.ts --outfile ./dist/best-ts-admin",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@best-ts/shared": "workspace:*",
+    "commander": "^15.1.0"
+  }
+}
