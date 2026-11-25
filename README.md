@@ -7,7 +7,7 @@
 这是可运行、可测试的 TypeScript workspace 模板。仓库里的 `best-ts` 是模板默认身份；创建新项目时用一次性脚本替换成目标身份，而不是把项目名做成运行期环境变量。
 
 ```sh
-git clone --depth 1 https://github.com/<owner>/best-ts-template.git my-app
+git clone --depth 1 https://github.com/ZLinFeng/ts-template.git my-app
 cd my-app
 rm -rf .git
 node scripts/init-template.mjs --name my-app --scope @my-scope --display-name "My App"
@@ -38,7 +38,7 @@ node skills/init-ts-project/scripts/scaffold.mjs \
   --display-name "My App"
 ```
 
-发布到 GitHub 后，在仓库 Settings 中勾选 Template repository，并把 skill 的 `TS_TEMPLATE_REPO` 指向该仓库即可。
+本模板仓库为 <https://github.com/ZLinFeng/ts-template>。在 GitHub 仓库 Settings 中勾选 Template repository 后，即可通过 “Use this template” 创建项目；skill 的 `config.json` 已指向该仓库。
 <!-- template:end -->
 
 基于 pnpm workspace 的 TypeScript 工程。Web 和管理 CLI 通过同一个 Fastify API 读写任务，数据持久化在本地 SQLite 文件中。

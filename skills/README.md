@@ -15,13 +15,13 @@ cp -R skills/init-ts-project ~/.dsh/skills/
 
 ```json
 {
-  "templateRepo": "https://github.com/<owner>/best-ts-template.git",
+  "templateRepo": "https://github.com/ZLinFeng/ts-template.git",
   "branch": "main"
 }
 ```
 
 ```sh
-export TS_TEMPLATE_REPO="https://github.com/<owner>/best-ts-template.git"
+export TS_TEMPLATE_REPO="https://github.com/ZLinFeng/ts-template.git"
 ```
 
 然后在任意目录运行：

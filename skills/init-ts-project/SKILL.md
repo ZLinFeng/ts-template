@@ -30,7 +30,7 @@ whenToUse: 用户说“用 best-ts-template 创建项目”“初始化一个 TS
 模板仓库发布前先填 `config.json`，或运行时传：
 
 ```sh
-export TS_TEMPLATE_REPO="https://github.com/<owner>/best-ts-template.git"
+export TS_TEMPLATE_REPO="https://github.com/ZLinFeng/ts-template.git"
 ```
 
 支持 `owner/repo`、`https://...`、`git@...`、`file://...` 和本地目录路径。本地模板开发时用 `--template /path/to/best-ts-template`。
