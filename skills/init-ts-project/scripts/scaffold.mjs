@@ -475,7 +475,8 @@ async function main() {
 
   if (options.install) {
     console.log(`\n[4/${steps.length}] Installing dependencies`);
-    run("pnpm", ["install"], { cwd: destination });
+    run("pnpm", ["install", "--no-frozen-lockfile"], { cwd: destination });
+    run("pnpm", ["install", "--frozen-lockfile"], { cwd: destination });
 
     if (options.check) {
       console.log(`\n[5/${steps.length}] Running checks`);

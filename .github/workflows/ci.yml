@@ -52,7 +52,7 @@ jobs:
             --scope @ci \
             --display-name "CI App"
           rm -rf skills scripts/init-template.mjs
-          pnpm install
+          pnpm install --no-frozen-lockfile
           if grep -RIl "best-ts" . --exclude-dir=node_modules --exclude-dir=.git; then
             echo "Template identifiers remain" >&2
             exit 1

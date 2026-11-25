@@ -415,8 +415,8 @@ async function main() {
   console.log(`  files changed: ${changed.length}`);
   console.log("");
   console.log("Next steps:");
-  console.log("  pnpm install        # regenerates pnpm-lock.yaml");
-  console.log("  pnpm check          # format, lint, typecheck and unit tests");
+  console.log("  pnpm install --no-frozen-lockfile   # regenerates pnpm-lock.yaml");
+  console.log("  pnpm check                           # format, lint, typecheck and unit tests");
   console.log("  pnpm build");
 }
 

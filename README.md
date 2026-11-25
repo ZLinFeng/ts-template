@@ -12,7 +12,7 @@ cd my-app
 rm -rf .git
 node scripts/init-template.mjs --name my-app --scope @my-scope --display-name "My App"
 rm -rf skills scripts/init-template.mjs   # 可选：不再需要生成器时删除
-pnpm install        # 重新生成 pnpm-lock.yaml
+pnpm install --no-frozen-lockfile   # 重新生成 pnpm-lock.yaml（CI 默认 frozen）
 pnpm check
 pnpm build
 ```
